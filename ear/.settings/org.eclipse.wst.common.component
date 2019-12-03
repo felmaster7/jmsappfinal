@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
+            
+    
     <wb-module deploy-name="jmsapp-ear">
-                
+                        
+        
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
-                
+                        
+        
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
         <dependent-module archiveName="jmsapp-web.war" deploy-path="/" handle="module:/resource/jmsapp-web/jmsapp-web">
             <dependency-type>uses</dependency-type>
@@ -92,7 +95,9 @@
         <dependent-module archiveName="jboss-jms-api_2.0_spec.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jboss/spec/javax/jms/jboss-jms-api_2.0_spec/2.0.0.Final/jboss-jms-api_2.0_spec-2.0.0.Final.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-            
-    </wb-module>
+                    
     
+    </wb-module>
+        
+
 </project-modules>

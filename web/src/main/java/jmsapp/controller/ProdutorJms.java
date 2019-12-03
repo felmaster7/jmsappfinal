@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.MessageProducer;
@@ -18,21 +19,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.soap.Text;
 
+import jmsapp.jms.ConsumerJms;
+
+
 @WebServlet(urlPatterns = "/send")
 public class ProdutorJms extends HttpServlet {
 
 	
-	@Resource(lookup = "java:/myjms/Mycon")
+	@Resource(lookup = "java:/myjms/mycon")
 	ConnectionFactory connectionFactory;
 	
 	@Resource(lookup = "java:/myjms/myqueue")
 	Destination destination;
-     
 	
+	@Inject
+	private ConsumerJms consumidor;
+     
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String mensagem = req.getParameter("mensagem");
+		String cliente = req.getParameter("cliente");
+		String total = req.getParameter("total");
 		
 		try {
 			QueueConnection connection = (QueueConnection) connectionFactory.createConnection();
@@ -43,13 +50,15 @@ public class ProdutorJms extends HttpServlet {
 			MessageProducer producer = session.createProducer(destination);
 			
 			TextMessage message = 
-					     session.createTextMessage(" Mensagem: " + mensagem);
+					     session.createTextMessage("O total do cliente "+cliente+" é: "+total+"." );
 			
 			producer.send(message);
 			
+			consumidor.onMessage(message);
+			
 			resp.setContentType("text/html");
 			PrintWriter out = resp.getWriter();
-			out.print("Mensagem enviada " + mensagem);
+			out.print("Mensagem enviada com sucesso");
 
 			
 			producer.close();

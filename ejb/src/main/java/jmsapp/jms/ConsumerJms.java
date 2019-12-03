@@ -18,10 +18,6 @@ public class ConsumerJms implements MessageListener {
 				System.out.println("===============");
 				System.out.println("===============");
 				
-				if(msg.getText().equals("sinistro")) {
-					throw new Exception();
-				}
-				
 				System.out.println(msg.getText());
 				
 				System.out.println("===============");
