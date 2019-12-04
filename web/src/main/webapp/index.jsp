@@ -9,7 +9,7 @@
 <body>
 
 	<h1>Vendas</h1>
-
+	<h5>${mensagem}<h5>
 	<br />
 
 	<fieldset>
@@ -17,24 +17,10 @@
 
 		<form action="cliente" method="get">
 			<p>
-				<label for="nome">Nome</label> 
-				<input type="text" name="nome" id="nome" size="120">
+				<label for="nome">Entre o seu id</label> 
+				<input type="text" name="id" id="id" size="120">
 			</p>
 
-			<p>
-				<label for="email">email</label> 
-				<input type="text" name="email" id="emial" size="120">
-			</p>
-			
-			<p>
-				<label for="cpf">cpf</label> 
-				<input type="text" name="cpf" id="cpf" size="120">
-			</p>
-			
-			<p>
-				<label for="endereco">endereco</label> 
-				<input type="text" name="endereco" id="endereco" size="120">
-			</p>
 			
 			<input  type="submit" value="Gravar">
 

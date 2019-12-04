@@ -1,4 +1,5 @@
 /home/fellipe/git/jmsapp/web/src/main/java/jmsapp/controller/ProdutorJms.java
 /home/fellipe/git/jmsapp/web/src/main/java/jmsapp/controller/ProdutoSerlet.java
 /home/fellipe/git/jmsapp/web/src/main/java/jmsapp/controller/ClienteServlet.java
+/home/fellipe/git/jmsapp/web/src/main/java/jmsapp/service/ClienteService.java
 /home/fellipe/git/jmsapp/web/src/main/java/jmsapp/controller/CarrinhoServlet.java
